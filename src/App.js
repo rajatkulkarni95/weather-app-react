@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import { getCurrentWeather, getWeatherForecast } from "./services/weatherAPI";
 import { WeatherContainer } from "./components/WeatherContainer";
 import { Search } from "./components/Search";
