@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+/* --------------- Browser Resets --------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --------------- Font Settings --------------- */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* --------------- Styling ---------------- */
+@media only screen and (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100vh;
+    background: #191919;
+    color: #cccccc;
+  }
+  input {
+    background-color: transparent;
+    color: #cccccc;
+  }
+
+  .search-bar {
+    outline: none;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: solid;
+    width: 75vw;
+    font-size: 2.5rem;
+    margin: 20px 5px 0 30px;
+  }
+
+  .weather,
+  .hourly-forecast {
+    margin: 20px 0 0 30px;
+    line-height: 1.5;
+  }
+
+  .weather__city {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  .weather__day {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  .weather__currentTemp {
+    font-family: "Montserrat", serif;
+    font-size: 180px;
+    height: 250px;
+  }
+  .weather__description {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .weather__feels {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
+
+  .weather__range {
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding-right: 20px;
+  }
+
+  .weather__details {
+    padding-top: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .weather__details-humidity {
+    margin-right: 20px;
+  }
+
+  .upcoming__forecast {
+    margin: 20px 20px 0 0;
+    border-bottom: 0.5px solid black;
+  }
+
+  .upcoming__forecast-header {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .hourly-forecast {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    text-align: left;
+  }
+}
