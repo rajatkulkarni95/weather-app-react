@@ -1,5 +1,10 @@
-import React, { useState } from "react";
-import { getCurrentWeather, getWeatherForecast } from "./services/weatherAPI";
+import React, { useState, useEffect } from "react";
+import {
+  getCurrentWeather,
+  getWeatherForecast,
+  getWeatherByLocation,
+  getForecastByLocation,
+} from "./services/weatherAPI";
 import { WeatherContainer } from "./components/WeatherContainer";
 import { Search } from "./components/Search";
 
@@ -9,7 +14,31 @@ export const App = () => {
     weather: {},
     forecast: [],
     tempScale: "Celsius",
+    coordinates: [],
   });
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function getPosition(position) {
+        getWeatherByLocation(
+          position.coords.latitude,
+          position.coords.longitude
+        ).then((response) =>
+          setState((prevState) => {
+            return { ...prevState, weather: response };
+          })
+        );
+        getForecastByLocation(
+          position.coords.latitude,
+          position.coords.longitude
+        ).then((response) =>
+          setState((prevState) => {
+            return { ...prevState, forecast: response.list };
+          })
+        );
+      });
+    }
+  }, []);
 
   const handleInput = (event) => {
     let userInput = event.target.value;

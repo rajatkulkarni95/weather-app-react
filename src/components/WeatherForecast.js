@@ -1,7 +1,6 @@
 import React from "react";
 
 export const WeatherForecast = ({ forecast }) => {
-  console.log(forecast);
   let time = parseInt(forecast.dt_txt.slice(11, 13));
   let timeText = "";
   if (time - 12 > 0) {
