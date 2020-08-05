@@ -3,10 +3,9 @@ const initialState = {
   weather: {},
   forecast: [],
   tempScale: "C",
-  latitude: "",
-  longitude: "",
   isLoading: true,
   isDarkMode: true,
+  isFavoritesOpen: false,
 };
 
 const reducer = (state, action) => {
@@ -40,6 +39,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         isDarkMode: action.payload,
+      };
+    case "showFavourites":
+      return {
+        ...state,
+        isFavoritesOpen: action.payload,
       };
     default:
       return state;

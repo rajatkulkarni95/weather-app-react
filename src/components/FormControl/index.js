@@ -14,6 +14,7 @@ export const Form = () => {
   const handleInput = (event) => {
     event.preventDefault();
     dispatch({ type: "isLoading", payload: true });
+
     dispatch({
       type: "location",
       payload: inputRef.current.value,
@@ -25,7 +26,9 @@ export const Form = () => {
     getWeatherForecast(inputRef.current.value).then((result) =>
       dispatch({ type: "forecast", payload: result })
     );
+
     dispatch({ type: "isLoading", payload: false });
+
     inputRef.current.value = "";
   };
 
@@ -40,12 +43,16 @@ export const Form = () => {
 };
 
 const SearchInput = styled.input`
-  background: ${(p) => p.theme.colors.elements};
+  background: ${(p) => p.theme.colors.background};
   color: ${(p) => p.theme.colors.textColor};
-  border: 1px solid ${(p) => p.theme.colors.textColor};
+  border: none;
   font-family: sans-serif;
   width: auto;
   height: auto;
-  padding: 8px;
+  padding: 10px;
   margin-right: 10px;
+
+  :focus {
+    border-bottom: 2px solid ${(p) => p.theme.colors.textColor};
+  }
 `;

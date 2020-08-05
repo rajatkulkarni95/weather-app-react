@@ -5,8 +5,8 @@ export const darkTheme = {
     textColor: "#E7E7EB",
     button: "#3C47E9",
   },
-  bodyColor: "#3c5267",
   font: "Raleway",
+  mobile: "768px",
 };
 
 export const lightTheme = {
@@ -17,4 +17,5 @@ export const lightTheme = {
     button: "#3C47E9",
   },
   font: "Raleway",
+  mobile: "768px",
 };
