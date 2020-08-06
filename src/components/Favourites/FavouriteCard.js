@@ -5,7 +5,7 @@ import { BsArrowRight } from "react-icons/bs";
 export const FavouriteCard = ({ location }) => {
   return (
     <Wrapper>
-      <span style={{ marginLeft: "20px", fontSize: "1.2rem" }}>{location}</span>
+      {location}
       <BsArrowRight style={{ marginRight: "20px" }} />
     </Wrapper>
   );
@@ -17,14 +17,22 @@ const Wrapper = styled.button`
   align-items: center;
   width: 100%;
   height: auto;
-  padding: 20px 0;
+  padding: 20px 10px;
   margin-bottom: 30px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background: none;
+  color: ${(p) => p.theme.colors.textColor};
+  font-size: 1.2rem;
 
-  ${({ theme }) => `
-        background: ${theme.colors.background};
-        color: ${theme.colors.textColor}
-    `}
+  :hover {
+    border: 1px solid ${(p) => p.theme.colors.textColor};
+  }
 `;
+
+const Text = styled.span`
+  marginLeft: "20px",
+  fontSize: "1.2rem",
+  color: ${(p) => p.theme.colors.textColor} 
+  `;

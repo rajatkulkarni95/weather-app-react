@@ -55,11 +55,6 @@ const Image = styled.img`
   size: 60px;
 `;
 
-const LoadingText = styled.div`
-  justify-content: center;
-  align-items: center;
-`;
-
 const TempValue = styled.span`
   font-size: 7rem;
   font-weight: 800;
