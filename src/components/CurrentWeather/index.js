@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { GoLocation } from "react-icons/go";
 import { WeatherContext } from "../../App";
 import moment from "moment";
-import Loader from "react-loader";
+import { Loader } from "../Loader";
 import styled from "styled-components";
 
 export const CurrentWeather = () => {
@@ -11,9 +11,9 @@ export const CurrentWeather = () => {
   const { weather, name, main } = state.weather;
   /* Image, Temp, Description, [Today, Date], [Icon, Place] */
   return (
-    <>
+    <Wrapper>
       {weather ? (
-        <Wrapper>
+        <>
           <Image
             src={`http://openweathermap.org/img/wn/${weather[0].icon}@4x.png`}
           />
@@ -33,11 +33,13 @@ export const CurrentWeather = () => {
           <Location>
             <GoLocation /> {name}
           </Location>
-        </Wrapper>
+        </>
+      ) : state.location == "" ? (
+        <h2>Waiting for you...</h2>
       ) : (
         <Loader />
       )}
-    </>
+    </Wrapper>
   );
 };
 
@@ -69,7 +71,7 @@ const TempDegree = styled.span`
 `;
 
 const Description = styled.div`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
   text-align: center;
 `;

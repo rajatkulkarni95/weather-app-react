@@ -4,8 +4,11 @@ export const GlobalStyle = createGlobalStyle`
     * {
         margin:0;
         padding:0;
-        box-sizing: border-box;
     }
+
+    *, *::after, *::before {
+        box-sizing: border-box;
+      }
 
     html,body {
         height: 100%;
@@ -13,7 +16,6 @@ export const GlobalStyle = createGlobalStyle`
 
     ${({ theme }) => `
     body {
-        background: ${theme.bodyColor};
         font-family: ${theme.font};
         color: ${theme.colors.textColor};
         display: flex;

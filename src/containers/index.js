@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useLocation } from "../hooks";
+import { useLocation } from "../hooks/location";
 import { CurrentCard } from "./CurrentCard";
 import { ForecastCard } from "./ForecastCard";
 
@@ -20,8 +20,8 @@ export const Container = () => {
 };
 
 const Wrapper = styled.div`
-  height: 95vh;
-  width: 95vw;
+  height: 100vh;
+  width: 100vw;
   display: flex;
 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
