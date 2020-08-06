@@ -6,6 +6,7 @@ const initialState = {
   isLoading: true,
   isDarkMode: true,
   isFavoritesOpen: false,
+  favourites: [],
 };
 
 const reducer = (state, action) => {
@@ -44,6 +45,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         isFavoritesOpen: action.payload,
+      };
+    case "favourites":
+      return {
+        ...state,
+        favourites: action.payload,
       };
     default:
       return state;

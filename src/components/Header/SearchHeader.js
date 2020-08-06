@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button } from "../Button";
 import { useLocation } from "../../hooks/location";
 import { Form } from "../FormControl";
 import { MdMyLocation } from "react-icons/md";
@@ -15,9 +14,9 @@ export const SearchHeader = () => {
       <HamBurger open={open} setOpen={setOpen} />
       <FavouritesMenu open={open} setOpen={setOpen} />
       <Form />
-      <Button background="#6E707A" color="#ffffff" onClick={fetchLocation}>
-        <MdMyLocation />
-      </Button>
+      <LocationBtn onClick={fetchLocation}>
+        <MdMyLocation size="30px" />
+      </LocationBtn>
     </Wrapper>
   );
 };
@@ -30,4 +29,11 @@ const Wrapper = styled.section`
 
 const HamWrapper = styled.span`
   margin-top: 10px;
+`;
+
+const LocationBtn = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: ${(p) => p.theme.colors.textColor};
 `;

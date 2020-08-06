@@ -45,11 +45,11 @@ const DegreeWrapper = styled.div`
 
 const CircularBtn = styled.button`
   width: auto;
-  padding: 10px;
+  padding: 10px 15px;
   height: auto;
   border-none;
-  border-radius: 50%;
-  color: white;
+  border-radius: 10px;
+  color:  ${(p) => p.theme.colors.textColor};
   margin-right: 10px;
   cursor: pointer;
   background:${(p) => p.theme.colors.elements};
