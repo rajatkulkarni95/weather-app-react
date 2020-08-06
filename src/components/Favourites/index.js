@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { Form } from "../FormControl";
 import { FavouriteCard } from "../Favourites/FavouriteCard";
+import { WeatherContext } from "../../App";
 
 export const FavouritesMenu = ({ open }) => {
-  let cities = ["Mumbai", "Pune", "Delhi"];
+  const [state] = useContext(WeatherContext);
   return (
     <StyledMenu open={open}>
       <Wrapper>
         <Header>Favourite Locations</Header>
-        {cities.map((city) => (
-          <FavouriteCard key={city} location={city} />
-        ))}
+        {state.favourites.length === 0 ? (
+          <h3>No Favourites Saved</h3>
+        ) : (
+          state.favourites.map((city) => (
+            <FavouriteCard key={city} location={city} />
+          ))
+        )}
       </Wrapper>
     </StyledMenu>
   );

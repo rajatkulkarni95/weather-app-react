@@ -1,33 +1,26 @@
-import React, { useContext, useEffect } from "react";
-import styled from "styled-components";
+import React, { useContext } from "react";
+import styled, { css } from "styled-components";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { WeatherContext } from "../../App";
-import { addToFavourites } from "../../hooks/favourite";
-/* import { useFavoriteState } from "../../hooks/favourite"; */
+import { useFavourites } from "../../hooks/favourite";
 
-export const FavoriteButton = ({ location }) => {
-  const [state, dispatch] = useContext(WeatherContext);
+export const FavoriteButton = () => {
+  const [state] = useContext(WeatherContext);
+  const { setFavourites } = useFavourites();
 
-  /*   const addToFavourites = () => {
-    let favourites = [...state.favourites];
-    favourites.push(state.weather.name);
-    dispatch({ type: "favourites", payload: favourites });
-
-    const json = JSON.stringify(state.favourites);
-    localStorage.setItem("favourites", json);
-  };
-
-  useEffect(() => {
-    const json = localStorage.getItem("favourites");
-    const favourites = JSON.parse(json);
-    if (favourites) {
-      dispatch({ type: "favourites", payload: favourites });
-    }
-  }, [state.favourites]); */
+  const isFavourite = state.favourites.includes(state.weather.name);
 
   return (
-    <AddFavourite>
-      <AiOutlineHeart /> Add to favourites
+    <AddFavourite onClick={setFavourites} isFavourite={isFavourite}>
+      {isFavourite ? (
+        <>
+          <AiFillHeart /> Added{" "}
+        </>
+      ) : (
+        <>
+          <AiOutlineHeart /> Add to Favourites{" "}
+        </>
+      )}
     </AddFavourite>
   );
 };
@@ -46,8 +39,10 @@ const AddFavourite = styled.button`
     border: 1px solid #ff4040;
   }
 
-  :active {
-    background: #ff4040;
-    color: #ffffff;
-  }
+  ${(p) =>
+    p.isFavourite &&
+    css`
+      background: #ff4040;
+      color: #ffffff;
+    `}
 `;

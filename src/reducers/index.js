@@ -5,7 +5,6 @@ const initialState = {
   tempScale: "C",
   isLoading: true,
   isDarkMode: true,
-  isFavoritesOpen: false,
   favourites: [],
 };
 
@@ -40,11 +39,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         isDarkMode: action.payload,
-      };
-    case "showFavourites":
-      return {
-        ...state,
-        isFavoritesOpen: action.payload,
       };
     case "favourites":
       return {

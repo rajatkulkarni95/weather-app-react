@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { WiHumidity, WiBarometer } from "react-icons/wi";
 import { FiWind } from "react-icons/fi";
 import { MdVisibility } from "react-icons/md";
-import { WeatherContext } from "../../App";
 
 export const StatusCard = ({ weather }) => {
-  const [state] = useContext(WeatherContext);
   const {
     wind: { speed },
     visibility,

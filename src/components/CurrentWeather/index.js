@@ -6,7 +6,7 @@ import { Loader } from "../Loader";
 import styled from "styled-components";
 
 export const CurrentWeather = () => {
-  const [state] = React.useContext(WeatherContext);
+  const [state] = useContext(WeatherContext);
 
   const { weather, name, main } = state.weather;
   /* Image, Temp, Description, [Today, Date], [Icon, Place] */
@@ -34,7 +34,7 @@ export const CurrentWeather = () => {
             <GoLocation /> {name}
           </Location>
         </>
-      ) : state.location == "" ? (
+      ) : state.location === "" ? (
         <h2>Waiting for you...</h2>
       ) : (
         <Loader />

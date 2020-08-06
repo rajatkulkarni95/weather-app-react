@@ -27,10 +27,6 @@ const Wrapper = styled.section`
   margin: 20px 30px 0 30px;
 `;
 
-const HamWrapper = styled.span`
-  margin-top: 10px;
-`;
-
 const LocationBtn = styled.button`
   background: none;
   border: none;
