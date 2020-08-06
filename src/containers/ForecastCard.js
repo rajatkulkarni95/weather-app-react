@@ -3,12 +3,11 @@ import styled from "styled-components";
 import { ToggleHeader } from "../components/Header/ToggleHeader";
 import { WeatherCard } from "../components/WeatherCard";
 import { WeatherContext } from "../App";
-import { Loader } from "../components/Loader";
 import { StatusCard } from "../components/StatusCard";
 
 export const ForecastCard = () => {
   const [state] = useContext(WeatherContext);
-  const { dt, list, main, weather } = state.forecast;
+  const { list } = state.forecast;
 
   return (
     <Wrapper>
@@ -17,7 +16,7 @@ export const ForecastCard = () => {
         <>
           <ForecastContainer>
             {list
-              .filter((value, index) => index % 8 == 0)
+              .filter((value, index) => index % 8 === 0)
               .map((value) => (
                 <WeatherCard key={value.dt} value={value} />
               ))}

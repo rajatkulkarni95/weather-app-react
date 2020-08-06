@@ -2,10 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { SearchHeader } from "../components/Header/SearchHeader";
 import { CurrentWeather } from "../components/CurrentWeather";
-import { WeatherContext } from "../App";
 
 export const CurrentCard = () => {
-  const [state] = React.useContext(WeatherContext);
   return (
     <Wrapper>
       <SearchHeader />

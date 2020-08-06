@@ -30,9 +30,3 @@ const Wrapper = styled.button`
     border: 1px solid ${(p) => p.theme.colors.textColor};
   }
 `;
-
-const Text = styled.span`
-  marginLeft: "20px",
-  fontSize: "1.2rem",
-  color: ${(p) => p.theme.colors.textColor} 
-  `;

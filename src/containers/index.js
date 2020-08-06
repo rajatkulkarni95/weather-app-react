@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useLocation } from "../hooks/location";
+import { useFavourites } from "../hooks/favourite";
 import { CurrentCard } from "./CurrentCard";
 import { ForecastCard } from "./ForecastCard";
 
 export const Container = () => {
   const { fetchLocation } = useLocation();
+  const { getFavourites } = useFavourites();
 
   useEffect(() => {
     fetchLocation();
+    getFavourites();
   }, []);
 
   return (
