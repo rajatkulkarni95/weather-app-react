@@ -12,7 +12,7 @@ export const Container = () => {
   useEffect(() => {
     fetchLocation();
     getFavourites();
-  });
+  }, []);
 
   return (
     <Wrapper>
