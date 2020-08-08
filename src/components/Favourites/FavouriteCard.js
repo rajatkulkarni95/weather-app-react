@@ -1,33 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { BsArrowRight } from "react-icons/bs";
-import { WeatherContext } from "../../App";
-import {
-  getCurrentWeather,
-  getWeatherForecast,
-} from "../../services/weatherAPI";
+import { handleLocation } from "../../helpers";
 
-export const FavouriteCard = ({ location, setOpen }) => {
-  const [state, dispatch] = useContext(WeatherContext);
-
+export const FavouriteCard = ({ location, setOpen, dispatch }) => {
   const setWeather = () => {
-    dispatch({ type: "isLoading", payload: true });
-
-    dispatch({
-      type: "location",
-      payload: location,
-    });
-
-    getCurrentWeather(location).then((result) =>
-      dispatch({ type: "weather", payload: result })
-    );
-    getWeatherForecast(location).then((result) =>
-      dispatch({ type: "forecast", payload: result })
-    );
-
-    dispatch({ type: "isLoading", payload: false });
-
     setOpen(false);
+    handleLocation(location, dispatch);
   };
 
   return (

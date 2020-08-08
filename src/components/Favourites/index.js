@@ -4,16 +4,21 @@ import { FavouriteCard } from "../Favourites/FavouriteCard";
 import { WeatherContext } from "../../App";
 
 export const FavouritesMenu = ({ open, setOpen }) => {
-  const [state] = useContext(WeatherContext);
+  const [state, dispatch] = useContext(WeatherContext);
   return (
     <StyledMenu open={open}>
       <Wrapper>
         <Header>Favourite Locations</Header>
         {state.favourites.length === 0 ? (
-          <h3>No Favourites Saved</h3>
+          <h3 style={{ textAlign: "center" }}>No Favourites Saved</h3>
         ) : (
           state.favourites.map((city) => (
-            <FavouriteCard key={city} location={city} setOpen={setOpen} />
+            <FavouriteCard
+              key={city}
+              location={city}
+              setOpen={setOpen}
+              dispatch={dispatch}
+            />
           ))
         )}
       </Wrapper>

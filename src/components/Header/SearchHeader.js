@@ -25,11 +25,21 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: space-between;
   margin: 20px 30px 0 30px;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: 20px 10px 10px 10px;
+  }
 `;
 
 const LocationBtn = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: 20px;
   color: ${(p) => p.theme.colors.textColor};
+
+  @media (max-width: 768px) {
+    margin: 0 10px;
+  }
 `;

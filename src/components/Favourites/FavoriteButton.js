@@ -14,11 +14,11 @@ export const FavoriteButton = () => {
     <AddFavourite onClick={setFavourites} isFavourite={isFavourite}>
       {isFavourite ? (
         <>
-          <AiFillHeart /> Added{" "}
+          <AiFillHeart />
         </>
       ) : (
         <>
-          <AiOutlineHeart /> Add to Favourites{" "}
+          <AiOutlineHeart />
         </>
       )}
     </AddFavourite>
@@ -33,16 +33,31 @@ const AddFavourite = styled.button`
   border-radius: 3px;
   color: ${(p) => p.theme.colors.textColor};
   margin-right: 20px;
+  cursor: pointer;
   font-family: ${(p) => p.theme.font};
 
   :hover {
     border: 1px solid #ff4040;
   }
 
+  :after {
+    content: " Add to Favourites";
+  }
+
   ${(p) =>
     p.isFavourite &&
     css`
+      :after {
+        content: " Added";
+      }
+
       background: #ff4040;
       color: #ffffff;
     `}
+
+  @media (max-width:1000px) {
+    :after {
+      content: "";
+    }
+  }
 `;

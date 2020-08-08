@@ -53,6 +53,11 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 20px 50px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    margin: 15px;
+  }
 `;
 
 const Card = styled.div`
@@ -71,5 +76,16 @@ const Card = styled.div`
   p {
     font-size: 1.5rem;
     font-weight: 600;
+  }
+
+  @media (max-width: 1000px) {
+    height: 100px;
+    width: 150px;
+    padding: 10px;
+    margin: 10px;
+    p {
+      font-size: 1rem;
+      font-weight: 600;
+    }
   }
 `;

@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import moment from "moment";
-import { WeatherContext } from "../../App";
 
-export const WeatherCard = ({ value }) => {
-  const [state] = useContext(WeatherContext);
-
+export const WeatherCard = ({ value, state }) => {
   return (
     <Wrapper>
       <Date>{moment.unix(value.dt).utc().format("ddd, D MMM")}</Date>
@@ -37,12 +34,16 @@ const Wrapper = styled.div`
   height: 200px;
   width: 120px;
   padding: 10px;
-  margin-right: 50px;
+  margin: 20px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
   justify-content: center;
   background: ${(p) => p.theme.colors.elements};
   border-radius: 5px;
   color: ${(p) => p.theme.colors.textColor};
+
+  @media (max-width: 768px) {
+    margin: 10px;
+  }
 `;
 
 const Date = styled.p`

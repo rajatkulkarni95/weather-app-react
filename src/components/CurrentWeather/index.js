@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
+import moment from "moment";
 import { GoLocation } from "react-icons/go";
 import { WeatherContext } from "../../App";
-import moment from "moment";
 import { Loader } from "../Loader";
-import styled from "styled-components";
 
 export const CurrentWeather = () => {
   const [state] = useContext(WeatherContext);
 
   const { weather, name, main } = state.weather;
-  /* Image, Temp, Description, [Today, Date], [Icon, Place] */
+
   return (
     <Wrapper>
       {weather ? (
