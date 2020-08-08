@@ -54,6 +54,7 @@ const HighlightCard = styled.div`
 `;
 
 const LoadingText = styled.h2`
-  text-align: center;
-  align-items: center;
+  position: absolute;
+  top: 48%;
+  left: 55%;
 `;

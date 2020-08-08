@@ -12,7 +12,7 @@ export const Container = () => {
   useEffect(() => {
     fetchLocation();
     getFavourites();
-  }, []);
+  });
 
   return (
     <Wrapper>
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
-
+  flex: 1 2 auto;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   background: ${(p) => p.theme.colors.background};
 `;
