@@ -26,7 +26,7 @@ export const StatusCard = ({ weather }) => {
         <span>Visibility</span>
         <p>
           {visibility}
-          <span></span>
+          <span> m</span>
         </p>
       </Card>
       <Card>

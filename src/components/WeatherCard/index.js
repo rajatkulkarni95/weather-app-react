@@ -11,6 +11,7 @@ export const WeatherCard = ({ value }) => {
       <Date>{moment.unix(value.dt).utc().format("ddd, D MMM")}</Date>
       <img
         src={`http://openweathermap.org/img/wn/${value.weather[0].icon}@2x.png`}
+        alt={value.weather[0].icon}
       />
       <MinMax>
         <span>

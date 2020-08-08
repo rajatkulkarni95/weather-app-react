@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { BsArrowRight } from "react-icons/bs";
+import { WeatherContext } from "../../App";
+import {
+  getCurrentWeather,
+  getWeatherForecast,
+} from "../../services/weatherAPI";
 
-export const FavouriteCard = ({ location }) => {
+export const FavouriteCard = ({ location, setOpen }) => {
+  const [state, dispatch] = useContext(WeatherContext);
+
+  const setWeather = () => {
+    dispatch({ type: "isLoading", payload: true });
+
+    dispatch({
+      type: "location",
+      payload: location,
+    });
+
+    getCurrentWeather(location).then((result) =>
+      dispatch({ type: "weather", payload: result })
+    );
+    getWeatherForecast(location).then((result) =>
+      dispatch({ type: "forecast", payload: result })
+    );
+
+    dispatch({ type: "isLoading", payload: false });
+
+    setOpen(false);
+  };
+
   return (
-    <Wrapper>
+    <Wrapper onClick={setWeather}>
       {location}
       <BsArrowRight style={{ marginRight: "20px" }} />
     </Wrapper>
