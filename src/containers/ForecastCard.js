@@ -11,7 +11,7 @@ export const ForecastCard = () => {
 
   return (
     <Wrapper>
-      {list ? (
+      {list && !state.weather?.isAxiosError ? (
         <>
           <ForecastContainer>
             {list

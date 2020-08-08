@@ -7,7 +7,8 @@ const forecastWeather_URI = "https://api.openweathermap.org/data/2.5/forecast?";
 export const getCurrentWeather = async (location) => {
   let result = await axios
     .get(`${currentWeather_URI}weather?q=${location}&APPID=${API_KEY}`)
-    .then(({ data }) => data);
+    .then(({ data }) => data)
+    .catch((error) => error);
 
   return result;
 };
@@ -15,7 +16,8 @@ export const getCurrentWeather = async (location) => {
 export const getWeatherForecast = async (location) => {
   let result = await axios
     .get(`${forecastWeather_URI}q=${location}&appid=${API_KEY}`)
-    .then(({ data }) => data);
+    .then(({ data }) => data)
+    .catch((error) => error);
 
   return result;
 };
