@@ -39,5 +39,6 @@ const SearchInput = styled.input`
     border-bottom: 2px solid ${(p) => p.theme.colors.textColor};
   }
 
+
   }
 `;

@@ -27,6 +27,9 @@ box-shadow: 0 0 5px rgba(0,0,0,0.3);
 @media (max-width:400px) {
   padding: 20px;
   font-size: 14px;
+  
 }
+
+
 }
 `;
