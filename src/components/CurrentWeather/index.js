@@ -12,7 +12,7 @@ export const CurrentWeather = () => {
 
   return (
     <Wrapper>
-      {weather ? (
+      {weather && !weather?.isAxiosError ? (
         <>
           <Image
             src={`https://openweathermap.org/img/wn/${weather[0].icon}@4x.png`}
