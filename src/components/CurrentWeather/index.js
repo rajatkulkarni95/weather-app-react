@@ -4,9 +4,10 @@ import moment from "moment";
 import { GoLocation } from "react-icons/go";
 import { WeatherContext } from "../../App";
 import { Loader } from "../Loader";
+import { handleLocation } from "../../helpers";
 
 export const CurrentWeather = () => {
-  const [state] = useContext(WeatherContext);
+  const [state, dispatch] = useContext(WeatherContext);
 
   const { weather, name, main } = state.weather;
 
@@ -35,7 +36,7 @@ export const CurrentWeather = () => {
           </Location>
         </>
       ) : state.location === "" ? (
-        <h2>Waiting for you...</h2>
+        handleLocation("Mumbai", dispatch)
       ) : (
         <Loader />
       )}
