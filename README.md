@@ -10,7 +10,7 @@
 
 ![App screenshot](./assets/LightMode.PNG)
 
-![App screenshot](./assets/MobileDesign.PNG)
+![App screenshot](./assets/MobileDesign.png)
 
 <div align='left'> Libraries Used
   <ul>
