@@ -11,4 +11,10 @@ export const Button = styled.button`
   font-family: ${(p) => p.theme.font};
   cursor: pointer;
   border-radius: 3px;
+
+  @media (max-width: 390px) {
+    display:none;
+  }
+
+  @
 `;
