@@ -2,32 +2,15 @@ import React, { useContext, useRef } from "react";
 import styled from "styled-components";
 import { Button } from "../Button";
 import { WeatherContext } from "../../App";
-import {
-  getCurrentWeather,
-  getWeatherForecast,
-} from "../../services/weatherAPI";
+import { handleLocation } from "../../helpers";
 
 export const Form = () => {
-  const [state, dispatch] = useContext(WeatherContext);
+  const [, dispatch] = useContext(WeatherContext);
   const inputRef = useRef();
 
   const handleInput = (event) => {
     event.preventDefault();
-    dispatch({ type: "isLoading", payload: true });
-
-    dispatch({
-      type: "location",
-      payload: inputRef.current.value,
-    });
-
-    getCurrentWeather(inputRef.current.value).then((result) =>
-      dispatch({ type: "weather", payload: result })
-    );
-    getWeatherForecast(inputRef.current.value).then((result) =>
-      dispatch({ type: "forecast", payload: result })
-    );
-
-    dispatch({ type: "isLoading", payload: false });
+    handleLocation(inputRef.current.value, dispatch);
 
     inputRef.current.value = "";
   };
@@ -43,16 +26,18 @@ export const Form = () => {
 };
 
 const SearchInput = styled.input`
-  background: ${(p) => p.theme.colors.background};
+  background: ${(p) => p.theme.colors.elements};
   color: ${(p) => p.theme.colors.textColor};
   border: none;
   font-family: sans-serif;
   width: auto;
   height: auto;
   padding: 10px;
-  margin-right: 10px;
+  margin: 0 20px;
 
   :focus {
     border-bottom: 2px solid ${(p) => p.theme.colors.textColor};
+  }
+
   }
 `;

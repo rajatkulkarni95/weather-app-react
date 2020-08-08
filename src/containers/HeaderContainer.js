@@ -13,9 +13,20 @@ export const HeaderContainer = () => {
 };
 
 const Wrapper = styled.div`
-  align-items: space-between;
-  background: ${(p) => p.theme.colors.elements};
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
+display: flex;
+justify-content: space-between;
+padding: 10px;
+background: ${(props) => props.theme.colors.background};
+box-shadow: 0 0 5px rgba(0,0,0,0.3);
+
+@media (max-width:700px) {
+  flex-direction: column;
+  margin-top:40px;
+}
+
+@media (max-width:400px) {
+  padding: 20px;
+  font-size: 14px;
+}
+}
 `;

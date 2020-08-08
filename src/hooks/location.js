@@ -6,7 +6,7 @@ import {
 import { WeatherContext } from "../App";
 
 export const useLocation = () => {
-  const [state, dispatch] = useContext(WeatherContext);
+  const [, dispatch] = useContext(WeatherContext);
 
   const fetchLocation = () => {
     if (navigator.geolocation) {

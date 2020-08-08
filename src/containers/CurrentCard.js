@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { SearchHeader } from "../components/Header/SearchHeader";
 import { CurrentWeather } from "../components/CurrentWeather";
 
 export const CurrentCard = () => {
   return (
     <Wrapper>
-      <SearchHeader />
       <CurrentWeather />
     </Wrapper>
   );
@@ -18,4 +16,11 @@ const Wrapper = styled.div`
   background: ${(p) => p.theme.colors.elements};
   height: 100%;
   border-radius: 10px;
+
+  @media (max-width: 1000px) {
+    flex: 100%;
+    flex-direction: column;
+    width:100%
+    justify-content: space-between;
+  }
 `;
